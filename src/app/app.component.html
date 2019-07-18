@@ -1,6 +1,6 @@
 <div class="page">
-	<mm-top-nav (sidenavToggle)="sidenav.toggle()" [items]="items" [title]="title"></mm-top-nav>
-	<mat-sidenav-container>
+	<mm-top-nav #nav (sidenavToggle)="sidenav.toggle()" [items]="items" [title]="title"></mm-top-nav>
+	<mat-sidenav-container [style.margin-top]="nav.height">
 		<mat-sidenav #sidenav>
 			<mm-side-nav (sidenavClose)="sidenav.close()" [items]="items"></mm-side-nav>
 		</mat-sidenav>

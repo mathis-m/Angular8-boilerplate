@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BreakpointObserver} from '@angular/cdk/layout';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Subject} from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,9 @@ export class ResponsiveService {
     public isMobile: boolean;
 
     public isDesktopChange: Subject<boolean> = new Subject();
-    isDesktop: boolean;
+    public isDesktop: boolean;
+
+    public breakpointChange: Subject<void> = new Subject();
 
     constructor(private breakpointObserver: BreakpointObserver) {
         this.subscribeToViewChanges();
@@ -35,6 +37,13 @@ export class ResponsiveService {
             if (result.matches) {
                 this.desktop = true;
                 this.mobile = false;
+            }
+        });
+        this.breakpointObserver.observe([
+            ...Object.entries({...Breakpoints}).map(kv => kv[1])
+        ]).subscribe(result => {
+            if (result.matches) {
+                this.breakpointChange.next();
             }
         });
     }
