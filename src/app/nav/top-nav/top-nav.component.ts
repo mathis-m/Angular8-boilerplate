@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NavItem} from '../interfaces';
 import {Router} from '@angular/router';
+import {ResponsiveService} from '../../services/responsive.service';
 
 @Component({
     selector: 'mm-top-nav',
@@ -14,7 +15,7 @@ export class TopNavComponent implements OnInit {
 
     public onToggleSidenav = () => this.sidenavToggle.emit();
 
-    constructor(public router: Router) {
+    constructor(public router: Router, public responsiveService: ResponsiveService) {
     }
 
     ngOnInit() {
