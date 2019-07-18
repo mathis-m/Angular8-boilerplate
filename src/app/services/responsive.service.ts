@@ -40,7 +40,6 @@ export class ResponsiveService {
     }
 
     private set mobile(value: boolean) {
-        console.log('mobile', value);
         if (this.isMobile !== value) {
             this.isMobile = value;
             this.isMobileChange.next(value);
@@ -48,8 +47,6 @@ export class ResponsiveService {
     }
 
     private set desktop(value) {
-        console.log('desktop', value);
-
         if (this.isDesktop !== value) {
             this.isDesktop = value;
             this.isDesktopChange.next(value);
