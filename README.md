@@ -1,7 +1,5 @@
 # Angular8 Boilerplate
 
-Used to create a Playlist out of your likes and to keep it updated.
-
 ## Setup
 
 Install Dependencies using npm
