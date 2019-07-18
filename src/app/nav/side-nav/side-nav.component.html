@@ -1,0 +1,12 @@
+<mat-nav-list>
+	<ng-container *ngFor="let item of items">
+		<a (click)="onSidenavClose()" [routerLink]="[item.route]" mat-list-item>
+			<mat-icon>{{item.matIcon}}</mat-icon>
+			{{item.name}}
+		</a>
+	</ng-container>
+	<a (click)="onSidenavClose()" mat-list-item>
+		<mat-icon>close</mat-icon>
+		Close
+	</a>
+</mat-nav-list>
